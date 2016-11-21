@@ -29,17 +29,6 @@ public class TaskDAO {
         return list;
     }
 
-//    public List<Task> getTasksFromList(String listId) {
-//        if (listId.isEmpty())
-//            return getAllTasks();
-//        Criteria criteria = session.createCriteria(Task.class)
-//                .add(eq("id", listId)); //
-//        List<Task> taskList = (List<Task>) criteria.list();
-//        session.close();
-//        return taskList;
-//    }
-
-
     public void addNewTask(String title, String details, int listId, String currentDay) {
         session.beginTransaction();
         Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
