@@ -16,7 +16,7 @@
             ${task.details}<br>
             <h4>Creation time:</h4>
             ${task.startTime}
-            <h4>Current time:</h4>
+            <h4>End time:</h4>
             ${task.currentDay}
             <h4>List:</h4>
             ${task.listTask.list_name}

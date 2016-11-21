@@ -1,13 +1,9 @@
 package controller;
 
-
 import dao.ListDAO;
 import dao.TaskDAO;
 import model.ListTask;
-import model.Task;
-
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,15 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet({"/home"})
-public class HomePageServlet extends HttpServlet {
+import static java.lang.Integer.parseInt;
+
+@WebServlet({"/add_task"})
+public class AddServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ListDAO listDAO = new ListDAO((SessionFactory) getServletContext().getAttribute("factory"));
-        List<ListTask> list = listDAO.getAllListTasks();
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-        req.setAttribute("ListTasks", list);
+        List<ListTask> ListTasks = listDAO.getAllListTasks();
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/add_task.jsp");
+        req.setAttribute("ListTasks", ListTasks);
         dispatcher.forward(req, resp);
     }
+
 }

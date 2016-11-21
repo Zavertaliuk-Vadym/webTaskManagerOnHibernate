@@ -73,7 +73,7 @@
 
 <body>
 <div class="allTasks">
-    <input type="submit" value="Add Task" onclick="window.location='jsp/add_task.jsp'" style="font-size:12px"><br>
+    <input type="submit" value="Add Task" onclick="window.location='/add_task'" style="font-size:12px"><br>
     <c:forEach items="${ListTasks}" var="list">
         <div class="Task">
             <h2>${list.list_name}</h2>

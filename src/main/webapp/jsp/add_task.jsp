@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" href="../css/mystyle.css">
@@ -9,7 +10,11 @@
         <input type="text" name="new_task" placeholder="add task" required>
         <input type="text" name="new_description" placeholder="add description">
         <input type="text" name="new_currentTime" placeholder="add current time">
-        <input type="text" name="new_list" placeholder="add list">
+        <select name="new_list">
+            <c:forEach items="${ListTasks}" var="listTasks">
+                <option value="${listTasks.list_id}">${listTasks.list_name}</option>
+            </c:forEach>
+        </select>
         <input type="submit" value="Add Task"><br>
     </form>
 </div>
