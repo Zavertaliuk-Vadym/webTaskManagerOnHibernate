@@ -19,8 +19,8 @@ public class CustomServletContextListener implements javax.servlet.ServletContex
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         System.out.println("Innit context");
         ServletContext sc = servletContextEvent.getServletContext();
-            SessionFactory session = HibernateUtil.getSessionFactory();
-            sc.setAttribute("factory", session);
+        SessionFactory session = HibernateUtil.getSessionFactory();
+        sc.setAttribute("factory", session);
     }
 
     @Override

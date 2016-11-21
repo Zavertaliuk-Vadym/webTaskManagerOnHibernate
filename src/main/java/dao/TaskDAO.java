@@ -22,7 +22,7 @@ public class TaskDAO {
         this.session = factory.openSession();
     }
 
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTasks() {
         Criteria criteria = session.createCriteria(Task.class);
         List<Task> list = (List<Task>) criteria.list();
         session.close();
@@ -42,7 +42,7 @@ public class TaskDAO {
 
     public void addNewTask(String title, String details, int listId, String currentDay) {
         session.beginTransaction();
-        Task task = new Task(listId,title, details,Boolean.FALSE ,new Date(System.currentTimeMillis()).toString(), currentDay);
+        Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
         session.save(task);
         session.getTransaction().commit();
         session.close();

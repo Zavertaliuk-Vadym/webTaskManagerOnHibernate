@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "task")
-public class Task implements java.io.Serializable{
+public class Task implements java.io.Serializable {
 
     @Id
     @Column(name = "id")
@@ -13,7 +13,7 @@ public class Task implements java.io.Serializable{
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "list_id",insertable = false,updatable = false)
+    @JoinColumn(name = "list_id", insertable = false, updatable = false)
     private ListTask listTask;
 
     @Column(name = "title")
@@ -23,13 +23,13 @@ public class Task implements java.io.Serializable{
     private String details;
 
     @Column(name = "view")
-    private Boolean view ;
+    private Boolean view;
 
     @Column(name = "startTime")
     private String startTime;
 
-    @Column(name = "currentDay")
-    private String currentDay;
+    @Column(name = "endTime")
+    private String endTime;
 
     @Column(name = "list_id")
     private Integer listId;
@@ -42,13 +42,13 @@ public class Task implements java.io.Serializable{
         this.listTask = listTask;
     }
 
-    public Task(Integer listId, String title, String details, Boolean view, String startTime, String currentDay) {
+    public Task(Integer listId, String title, String details, Boolean view, String startTime, String endTime) {
         this.listId = listId;
         this.title = title;
         this.details = details;
         this.view = view;
         this.startTime = startTime;
-        this.currentDay = currentDay;
+        this.endTime = endTime;
     }
 
     public int getId() {
@@ -95,13 +95,13 @@ public class Task implements java.io.Serializable{
         this.startTime = startTime;
     }
 
-    @Column(name = "currentDay")
-    public String getCurrentDay() {
-        return currentDay;
+    @Column(name = "endTime")
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setCurrentDay(String currentDay) {
-        this.currentDay = currentDay;
+    public void setEndTime(String currentDay) {
+        this.endTime = currentDay;
     }
 
 

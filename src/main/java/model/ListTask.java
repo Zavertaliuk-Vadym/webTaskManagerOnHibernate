@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "list")
-public class ListTask implements java.io.Serializable{
+public class ListTask implements java.io.Serializable {
 
     @Id
     @Column(name = "id")
@@ -47,6 +47,7 @@ public class ListTask implements java.io.Serializable{
     public void setList_id(Integer list_id) {
         this.list_id = list_id;
     }
+
     @Column(name = "name")
     public String getList_name() {
         return list_name;

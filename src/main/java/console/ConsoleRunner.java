@@ -31,7 +31,7 @@ public class ConsoleRunner {
         for (ListTask listTask : list) {
             System.out.println(listTask.getList_id() + ") " + listTask.getList_name());
             for (Task task : listTask.getTask()) {
-                System.out.println("      "+task.getId()+"    " +task.getTitle());
+                System.out.println("      " + task.getId() + "    " + task.getTitle());
             }
         }
         System.out.println("-----------------");

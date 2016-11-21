@@ -17,35 +17,39 @@ input[type=submit] {
     border-radius: 5px;
 }
 
-a:visited{
+a:visited {
     color: red;
 }
 
-a:active{
+a:active {
     color: red;
 }
 
-a{
+a {
     color: red;
 }
 
-a:link{
+a:link {
     color: red;
 }
-.allTasks{
+
+.allTasks {
     background-color: bisque;
 }
-.addTasks{
+
+.addTasks {
     background-color: yellowgreen;
 }
-.aboutTask{
-    background-color:aquamarine ;
+
+.aboutTask {
+    background-color: aquamarine;
 }
 
-.list{
+.list {
     background-color: aqua;
     border-radius: 2px;
 }
-.toDo{
+
+.toDo {
     background-color: yellowgreen;
 }

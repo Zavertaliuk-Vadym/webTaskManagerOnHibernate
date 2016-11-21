@@ -44,11 +44,13 @@
     a:link {
         color: red;
     }
+
     .Task {
         margin: 50px;
         padding: 5px;
         border-radius: 5px;
     }
+
     .allTasks {
         background-color: bisque;
     }
