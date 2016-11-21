@@ -9,7 +9,7 @@
     <form action="/newTask">
         <input type="text" name="new_task" placeholder="add task" required>
         <input type="text" name="new_description" placeholder="add description">
-        <input type="text" name="new_currentTime" placeholder="add current time">
+        <input type="text" name="new_currentTime" placeholder="add end time">
         <select name="new_list">
             <c:forEach items="${ListTasks}" var="listTasks">
                 <option value="${listTasks.list_id}">${listTasks.list_name}</option>

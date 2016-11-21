@@ -2,3 +2,6 @@
 .gitignore
 .idea/
 webTaskManagerOnHibernate.iml
+/HibernateExample.iml
+c:/
+target/
