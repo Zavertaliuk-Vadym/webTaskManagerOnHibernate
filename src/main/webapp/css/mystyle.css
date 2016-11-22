@@ -2,6 +2,10 @@ td {
     padding: 5px;
 }
 
+h2 {
+    background-color: azure;
+}
+
 input {
     margin: 10px;
     padding: 5px;
@@ -31,6 +35,12 @@ a {
 
 a:link {
     color: red;
+}
+
+.Task {
+    margin: 50px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .allTasks {

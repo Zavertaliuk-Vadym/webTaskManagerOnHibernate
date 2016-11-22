@@ -1,6 +1,8 @@
 package controller;
 
+import dao.TaskDAO;
 import model.Task;
+import org.hibernate.SessionFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +17,11 @@ import java.io.IOException;
 public class ChangeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        Task task = (Task) session.getAttribute(req.getParameter("task"));
-        resp.sendRedirect("/messages?task=" + req.getParameter("task"));
+        TaskDAO dao = new TaskDAO((SessionFactory) getServletContext().getAttribute("factory"));
+        Task task = dao.getTaskById(req.getParameter("id"));
+        System.out.println("task"+task);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/change.jsp");
+        req.setAttribute("task", task);
+        dispatcher.forward(req, resp);
     }
 }

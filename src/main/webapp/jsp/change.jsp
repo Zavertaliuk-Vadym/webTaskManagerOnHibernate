@@ -8,16 +8,13 @@
 <body>
 <div class="aboutTask">
     <input type="submit" value="Home" onclick="window.location='/home'"><br>
-    <form action="/change">
-        <input type="submit" value="Add Task"><br>
-        <table>
-            <h4>Title:</h4>
-            ${task.title}<br>
-            <input type="text" name="new_task" placeholder="add task" required>
-            <h4>Details:</h4>
-            ${task.details}<br>
-            <input type="text" name="new_description" placeholder="add description">
-        </table>
+    <form action="/about.jsp">
+        <input type="submit" value="change"><br>
+        <input type="text" name="new_description" placeholder="add description">
+        <input type="text" name="new_description" placeholder="add description">
+        <input type="text" name="new_description" placeholder="add description">
+        <input type="text" name="new_description" placeholder="add description">
+        <input type="text" name="new_description" placeholder="add description">
     </form>
 </div>
 </body>

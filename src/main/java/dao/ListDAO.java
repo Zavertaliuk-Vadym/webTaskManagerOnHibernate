@@ -20,7 +20,7 @@ public class ListDAO {
 
     public List<ListTask> getAllListTasks() {
         Criteria criteria = session.createCriteria(ListTask.class);
-        List<ListTask> listTaskses = (List<ListTask>) criteria.list();
-        return listTaskses;
+        List<ListTask> listTask = (List<ListTask>) criteria.list();
+        return listTask;
     }
 }
