@@ -1,8 +1,7 @@
-package controller;
+package interlink.controller;
 
-import dao.ListDAO;
-import dao.TaskDAO;
-import model.ListTask;
+import interlink.dao.ListDAO;
+import interlink.model.ListTask;
 import org.hibernate.SessionFactory;
 
 import javax.servlet.RequestDispatcher;

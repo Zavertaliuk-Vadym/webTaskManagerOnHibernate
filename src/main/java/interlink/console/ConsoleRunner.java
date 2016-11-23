@@ -1,8 +1,8 @@
-package console;
+package interlink.console;
 
-import dao.ListDAO;
-import model.ListTask;
-import model.Task;
+import interlink.dao.ListDAO;
+import interlink.model.ListTask;
+import interlink.model.Task;
 import org.hibernate.SessionFactory;
 
 import java.util.List;

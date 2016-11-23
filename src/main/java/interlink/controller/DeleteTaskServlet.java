@@ -1,6 +1,6 @@
-package controller;
+package interlink.controller;
 
-import dao.TaskDAO;
+import interlink.dao.TaskDAO;
 import org.hibernate.SessionFactory;
 
 import javax.servlet.ServletException;
@@ -8,9 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet({"/delete"})
 public class DeleteTaskServlet extends HttpServlet {

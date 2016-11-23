@@ -1,7 +1,7 @@
-package controller;
+package interlink.controller;
 
-import dao.TaskDAO;
-import model.Task;
+import interlink.dao.TaskDAO;
+import interlink.model.Task;
 import org.hibernate.SessionFactory;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet({"/change"})

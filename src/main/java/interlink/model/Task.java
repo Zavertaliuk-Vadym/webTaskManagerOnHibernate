@@ -1,4 +1,4 @@
-package model;
+package interlink.model;
 
 
 import javax.persistence.*;

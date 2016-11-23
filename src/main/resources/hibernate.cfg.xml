@@ -10,7 +10,7 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">school24</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<mapping class="model.ListTask" />
-		<mapping class="model.Task" />
+		<mapping class="interlink.model.ListTask" />
+		<mapping class="interlink.model.Task" />
 	</session-factory>
 </hibernate-configuration>

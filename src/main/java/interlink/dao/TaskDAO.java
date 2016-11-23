@@ -1,6 +1,6 @@
-package dao;
+package interlink.dao;
 
-import model.Task;
+import interlink.model.Task;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

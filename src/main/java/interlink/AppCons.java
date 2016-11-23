@@ -1,7 +1,9 @@
-import console.ConsoleRunner;
+package interlink;
+
+import interlink.console.ConsoleRunner;
 
 import org.hibernate.SessionFactory;
-import util.HibernateUtil;
+import interlink.util.HibernateUtil;
 
 public class AppCons {
     public static void main(String[] args) {
