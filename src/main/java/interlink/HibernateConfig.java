@@ -28,14 +28,14 @@ public class HibernateConfig {
         }
     };
 
-    @Value("db.url")
-    String dbUrl;
+//    @Value("db.url")
+    private String dbUrl="jdbc:mysql://localhost:3306/Task";
 
-    @Value("db.username")
-    String dbUser;
+//    @Value("db.username")
+    private String dbUser="root";
 
-    @Value("db.password")
-    String dbPass;
+//    @Value("db.password")
+    private String dbPass="school24";
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {

@@ -14,7 +14,7 @@ public class ListTask implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer list_id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "listTask")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "listTask")
     private List<Task> task = new ArrayList();
 
     @Column(name = "name")
