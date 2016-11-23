@@ -12,15 +12,15 @@ import java.util.List;
  */
 public class ListDAO {
 
-    private Session session;
-
-    public ListDAO(SessionFactory sessionFactory) {
-        this.session = sessionFactory.openSession();
-    }
-
-    public List<ListTask> getAllListTasks() {
-        Criteria criteria = session.createCriteria(ListTask.class);
-        List<ListTask> listTask = (List<ListTask>) criteria.list();
-        return listTask;
-    }
+//    private Session session;
+//
+//    public ListDAO(SessionFactory sessionFactory) {
+//        this.session = sessionFactory.openSession();
+//    }
+//
+//    public List<ListTask> getAllListTasks() {
+//        Criteria criteria = session.createCriteria(ListTask.class);
+//        List<ListTask> listTask = (List<ListTask>) criteria.list();
+//        return listTask;
+//    }
 }
