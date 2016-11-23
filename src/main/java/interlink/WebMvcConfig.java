@@ -27,7 +27,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("../webapp/");
+        resolver.setPrefix("");
         resolver.setSuffix(".jsp");
         resolver.setViewClass(JstlView.class);
         return resolver;
@@ -40,6 +40,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("../webapp");
+        registry.addResourceHandler("/resources/**").addResourceLocations("../webapp/css");
     }
 }

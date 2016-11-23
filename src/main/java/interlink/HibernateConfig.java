@@ -17,13 +17,14 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:hibernate.properties")
 public class HibernateConfig {
+    static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
     static final Properties hibernateProperties = new Properties() {
         {
-            setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-            setProperty("hibernate.hbm2ddl.auto", "update");
-            setProperty("hibernate.show_sql", "true");
-            setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate4.SpringSessionContext");
+            setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+//            setProperty("hibernate.hbm2ddl.auto", "update");
+//            setProperty("hibernate.show_sql", "true");
+//            setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate4.SpringSessionContext");
         }
     };
 
@@ -35,9 +36,6 @@ public class HibernateConfig {
 
     @Value("db.password")
     String dbPass;
-
-    @Value("db.driver")
-    String dbDriver;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -63,7 +61,7 @@ public class HibernateConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(dbUrl, dbUser, dbPass);
-        dataSource.setDriverClassName(dbDriver);
+        dataSource.setDriverClassName(DRIVER_CLASS_NAME);
         return dataSource;
     }
 }

@@ -4,23 +4,22 @@ import interlink.model.ListTask;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by employee on 11/17/16.
- */
+@Repository
+@Transactional
 public class ListDAO {
 
-//    private Session session;
-//
-//    public ListDAO(SessionFactory sessionFactory) {
-//        this.session = sessionFactory.openSession();
-//    }
-//
-//    public List<ListTask> getAllListTasks() {
-//        Criteria criteria = session.createCriteria(ListTask.class);
-//        List<ListTask> listTask = (List<ListTask>) criteria.list();
-//        return listTask;
-//    }
+    @Autowired
+    SessionFactory sessionFactory;
+
+    public List<ListTask> getAllListTasks() {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(ListTask.class);
+        List<ListTask> listTask = (List<ListTask>) criteria.list();
+        return listTask;
+    }
 }

@@ -21,40 +21,27 @@ public class TaskDAO {
     @Autowired
     SessionFactory sessionFactory;
 
-//    private Session session;
-
-//    public TaskDAO(SessionFactory factory) {
-//        this.sessionFactory = factory.openSession();
-//    }
-
     public List<Task> getAllTasks() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Task.class);
         List<Task> list = (List<Task>) criteria.list();
-//        session.close();
         return list;
     }
 
     public void addNewTask(String title, String details, int listId, String currentDay) {
-//        session.beginTransaction();
         sessionFactory.getCurrentSession();
         Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
         sessionFactory.getCurrentSession().save(task);
         sessionFactory.getCurrentSession().getTransaction().commit();
-//        session.close();
     }
 
     public void deleteTask(String taskId) {
-//        session.beginTransaction();
-//        sessionFactory.getCurrentSession();
         Task task = (Task)  sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         sessionFactory.getCurrentSession().delete(task);
         sessionFactory.getCurrentSession().getTransaction().commit();
-//        session.close();
     }
 
     public void switchStatusTask(String taskId) {
-//        session.beginTransaction();
         Task task = (Task)  sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         task.setView(!task.getView());

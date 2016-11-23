@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="allTasks">
-    <input type="submit" value="Add Task" onclick="window.location='/add_task'" style="font-size:12px"><br>
+    <input type="submit" value="Add Task" onclick="window.location='hello'" style="font-size:12px"><br>
     <c:forEach items="${ListTasks}" var="list">
         <div class="Task">
             <h2>${list.list_name}</h2>
@@ -72,5 +72,6 @@
         </div>
     </c:forEach>
 </div>
+<h2>Hello world!</h2>
 </body>
 </html>
