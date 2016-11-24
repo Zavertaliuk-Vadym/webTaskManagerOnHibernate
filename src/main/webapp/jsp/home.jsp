@@ -4,12 +4,16 @@
 <head>
     <link rel="stylesheet" href="../css/mystyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Home</title>
 </head>
 <body>
 <div class="allTasks">
-    <input type="submit" value="Add Task" onclick="window.location='/add_task'" style="font-size:12px"><br>
-
-
+    <form action="/add_task" method="get">
+        <input type="submit" value="Add Task"><br>
+    </form>
+    <form action="/add_list" method="get">
+        <input type="submit" value="Add List"><br>
+    </form>
     <c:forEach items="${ListTasks}" var="list">
         <div class="Task">
             <h2>${list.list_name}</h2>
@@ -36,9 +40,6 @@
                                     <form action="/view?task=${task.id}" method="post">
                                         <input type="submit" value="Active" ><br>
                                     </form>
-                                    <%--<a href="/view?task=${task.id}">--%>
-                                        <%--<i class="material-icons" style="font-size:32px;color: black">indeterminate_check_box</i>--%>
-                                    <%--</a>--%>
                                 </td>
                             </c:if>
                         </tr>
@@ -68,9 +69,6 @@
                                     <form action="/view?task=${task.id}" method="post">
                                         <input type="submit" value="Done" ><br>
                                     </form>
-                                    <%--<a href="/view?task=${task.id}">--%>
-                                        <%--<i class="material-icons" style="font-size:32px;color: black">check_box</i>--%>
-                                    <%--</a>--%>
                                 </td>
                             </c:if>
                         </tr>

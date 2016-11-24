@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/mystyle.css">
+    <title>New Task</title>
 </head>
 <body>
 <div class="addTasks">

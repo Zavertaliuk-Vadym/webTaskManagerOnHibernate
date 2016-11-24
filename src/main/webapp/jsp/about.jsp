@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="../css/mystyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>About Task</title>
 </head>
 
 <body>

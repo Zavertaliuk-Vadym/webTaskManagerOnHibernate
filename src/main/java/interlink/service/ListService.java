@@ -22,4 +22,8 @@ public class ListService {
         List<ListTask> list = dao.getAllLists();
         return list;
     }
+
+    public void addNewList(String name) {
+        dao.addNewList(name);
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -22,9 +23,9 @@ public class ListDAO {
         Criteria criteria = sessionFactory.getCurrentSession().
                 createCriteria(ListTask.class);
         List<ListTask> listTask = (List<ListTask>) criteria.list();
-        for (ListTask task:listTask){
+        for (ListTask task : listTask) {
             task.getList_name();
-            for (Task task1 :task.getTask()){
+            for (Task task1 : task.getTask()) {
                 task1.getTitle();
             }
         }
@@ -36,5 +37,11 @@ public class ListDAO {
                 createCriteria(ListTask.class);
         List<ListTask> listTask = (List<ListTask>) criteria.list();
         return listTask;
+    }
+
+    public void addNewList(String name) {
+        ListTask listTask = new ListTask(name);
+//        Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
+        sessionFactory.getCurrentSession().save(listTask);
     }
 }
