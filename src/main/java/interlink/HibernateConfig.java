@@ -22,20 +22,14 @@ public class HibernateConfig {
     static final Properties hibernateProperties = new Properties() {
         {
             setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-//            setProperty("hibernate.hbm2ddl.auto", "update");
-//            setProperty("hibernate.show_sql", "true");
-//            setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate4.SpringSessionContext");
         }
     };
 
-//    @Value("db.url")
-    private String dbUrl="jdbc:mysql://localhost:3306/Task";
+    private String dbUrl = "jdbc:mysql://localhost:3306/Task";
 
-//    @Value("db.username")
-    private String dbUser="root";
+    private String dbUser = "root";
 
-//    @Value("db.password")
-    private String dbPass="school24";
+    private String dbPass = "school24";
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {

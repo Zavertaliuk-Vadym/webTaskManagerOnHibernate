@@ -28,30 +28,29 @@ public class TaskDAO {
     }
 
     public void addNewTask(String title, String details, int listId, String currentDay) {
-        sessionFactory.getCurrentSession();
         Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
         sessionFactory.getCurrentSession().save(task);
-        sessionFactory.getCurrentSession().getTransaction().commit();
+//        sessionFactory.getCurrentSession().save(task);
+//        sessionFactory.getCurrentSession().getTransaction().commit();
     }
 
     public void deleteTask(String taskId) {
-        Task task = (Task)  sessionFactory.getCurrentSession().createCriteria(Task.class)
+        Task task = (Task) sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         sessionFactory.getCurrentSession().delete(task);
         sessionFactory.getCurrentSession().getTransaction().commit();
     }
 
     public void switchStatusTask(String taskId) {
-        Task task = (Task)  sessionFactory.getCurrentSession().createCriteria(Task.class)
+        Task task = (Task) sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         task.setView(!task.getView());
         sessionFactory.getCurrentSession().update(task);
         sessionFactory.getCurrentSession().getTransaction().commit();
-//        session.close();
     }
 
     public Task getTaskById(String taskId) {
-        Task task = (Task)  sessionFactory.getCurrentSession().createCriteria(Task.class)
+        Task task = (Task) sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId)))
                 .uniqueResult();
         return task;
