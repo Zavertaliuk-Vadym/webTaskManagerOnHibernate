@@ -38,7 +38,6 @@ public class TaskDAO {
         Task task = (Task) sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         sessionFactory.getCurrentSession().delete(task);
-        sessionFactory.getCurrentSession().getTransaction().commit();
     }
 
     public void switchStatusTask(String taskId) {

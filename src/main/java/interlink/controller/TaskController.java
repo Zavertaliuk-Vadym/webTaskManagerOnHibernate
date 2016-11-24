@@ -29,4 +29,11 @@ public class TaskController {
         taskService.addNewTask(title, descr, list, currentTime);
         response.sendRedirect("home");
     }
+
+    @RequestMapping("/delete")
+    void delete(@RequestParam("task") String id,
+                HttpServletResponse response) throws IOException {
+        taskService.deleteTask(id);
+        response.sendRedirect("home");
+    }
 }
