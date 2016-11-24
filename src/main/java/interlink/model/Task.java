@@ -14,7 +14,7 @@ public class Task implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "list_id", insertable = false, updatable = false)
-    private ListTask listTask;
+    private TasksList tasksList;
 
     @Column(name = "title")
     private String title;
@@ -38,8 +38,8 @@ public class Task implements java.io.Serializable {
 
     }
 
-    public Task(ListTask listTask) {
-        this.listTask = listTask;
+    public Task(TasksList tasksList) {
+        this.tasksList = tasksList;
     }
 
     public Task(Integer listId, String title, String details, Boolean view, String startTime, String endTime) {
@@ -104,15 +104,6 @@ public class Task implements java.io.Serializable {
         this.endTime = currentDay;
     }
 
-
-    public ListTask getListTask() {
-        return listTask;
-    }
-
-    public void setListTask(ListTask listTask) {
-        this.listTask = listTask;
-    }
-
     public Boolean getView() {
         return view;
     }
@@ -127,5 +118,13 @@ public class Task implements java.io.Serializable {
 
     public void setListId(Integer listId) {
         this.listId = listId;
+    }
+
+    public TasksList getTasksList() {
+        return tasksList;
+    }
+
+    public void setTasksList(TasksList tasksList) {
+        this.tasksList = tasksList;
     }
 }

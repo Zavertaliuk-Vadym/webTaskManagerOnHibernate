@@ -7,33 +7,33 @@ import java.util.List;
 
 @Entity
 @Table(name = "list")
-public class ListTask implements java.io.Serializable {
+public class TasksList implements java.io.Serializable {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer list_id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "listTask")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tasksList")
     private List<Task> tasks = new ArrayList();
 
     @Column(name = "name")
     private String list_name;
 
-    public ListTask() {
+    public TasksList() {
     }
 
-    public ListTask(String list_name) {
+    public TasksList(String list_name) {
         this.list_name = list_name;
     }
 
-    public ListTask(Integer list_id, String list_name) {
+    public TasksList(Integer list_id, String list_name) {
         this.list_id = list_id;
         this.list_name = list_name;
     }
 
 
-    public ListTask(Integer list_id, String list_name, List<Task> tasks) {
+    public TasksList(Integer list_id, String list_name, List<Task> tasks) {
         this.list_id = list_id;
         this.list_name = list_name;
         this.tasks = tasks;

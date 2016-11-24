@@ -1,13 +1,9 @@
 package interlink.service;
 
-import interlink.dao.ListDAO;
 import interlink.dao.TaskDAO;
-import interlink.model.ListTask;
 import interlink.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class TaskService {
@@ -29,6 +25,16 @@ public class TaskService {
 
     public Task getTaskById(String id) {
         Task task =dao.getTaskById(id);
+        return task;
+    }
+
+    public void updateTask(String taskId, String title, String details, String startTime, String endTime, Integer listId) {
+        dao.updateTask(taskId,title,details,startTime,endTime,listId);
+    }
+
+    public Task qwerty(String taskId, String title, String details, String startTime, String endTime, Integer listId) {
+        dao.updateTask(taskId,title,details,startTime,endTime,listId);
+        Task task =dao.getTaskById(taskId);
         return task;
     }
 }

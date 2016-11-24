@@ -22,7 +22,7 @@ public class HomeController {
     ListService listService;
 
     @RequestMapping(value = "/deleteTask", method = RequestMethod.POST)
-    void delete(@RequestParam("task") String id,
+    void deleteTask(@RequestParam("task") String id,
                 HttpServletResponse response) throws IOException {
         taskService.deleteTask(id);
         response.sendRedirect("home");

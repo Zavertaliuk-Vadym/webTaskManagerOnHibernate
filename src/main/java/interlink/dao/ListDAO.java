@@ -1,9 +1,8 @@
 package interlink.dao;
 
-import interlink.model.ListTask;
+import interlink.model.TasksList;
 import interlink.model.Task;
 import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,34 +20,34 @@ public class ListDAO {
     @Autowired
     SessionFactory sessionFactory;
 
-    public List<ListTask> getAllListTasks() {
+    public List<TasksList> getAllListTasks() {
         Criteria criteria = sessionFactory.getCurrentSession().
-                createCriteria(ListTask.class);
+                createCriteria(TasksList.class);
        // criteria.setFetchMode("lists", FetchMode.LAZY);
-        List<ListTask> listTask = (List<ListTask>) criteria.list();
-        for (ListTask task : listTask) {
+        List<TasksList> tasksList = (List<TasksList>) criteria.list();
+        for (TasksList task : tasksList) {
             task.getList_name();
             for (Task task1 : task.getTasks()) {
                 task1.getTitle();
             }
         }
-        return listTask;
+        return tasksList;
     }
 
-    public List<ListTask> getAllLists() {
+    public List<TasksList> getAllLists() {
         Criteria criteria = sessionFactory.getCurrentSession().
-                createCriteria(ListTask.class);
-        List<ListTask> listTask = (List<ListTask>) criteria.list();
-        return listTask;
+                createCriteria(TasksList.class);
+        List<TasksList> tasksList = (List<TasksList>) criteria.list();
+        return tasksList;
     }
 
     public void addNewList(String name) {
-        ListTask listTask = new ListTask(name);
-        sessionFactory.getCurrentSession().save(listTask);
+        TasksList tasksList = new TasksList(name);
+        sessionFactory.getCurrentSession().save(tasksList);
     }
 
     public void delete(String id) {
-        ListTask task = (ListTask) sessionFactory.getCurrentSession().createCriteria(ListTask.class)
+        TasksList task = (TasksList) sessionFactory.getCurrentSession().createCriteria(TasksList.class)
                 .add(eq("id", parseInt(id))).uniqueResult();
         sessionFactory.getCurrentSession().delete(task);
     }

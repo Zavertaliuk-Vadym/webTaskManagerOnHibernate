@@ -1,7 +1,7 @@
 package interlink.service;
 
 import interlink.dao.ListDAO;
-import interlink.model.ListTask;
+import interlink.model.TasksList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +13,13 @@ public class ListService {
     @Autowired
     ListDAO dao;
 
-    public List<ListTask> getAllListsWithTasks() {
-        List<ListTask> list = dao.getAllListTasks();
+    public List<TasksList> getAllListsWithTasks() {
+        List<TasksList> list = dao.getAllListTasks();
         return list;
     }
 
-    public List<ListTask> getAllLists() {
-        List<ListTask> list = dao.getAllLists();
+    public List<TasksList> getAllLists() {
+        List<TasksList> list = dao.getAllLists();
         return list;
     }
 
