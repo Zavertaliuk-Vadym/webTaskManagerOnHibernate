@@ -15,7 +15,7 @@ public class ListTask implements java.io.Serializable {
     private Integer list_id;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "listTask")
-    private List<Task> task = new ArrayList();
+    private List<Task> tasks = new ArrayList();
 
     @Column(name = "name")
     private String list_name;
@@ -33,10 +33,10 @@ public class ListTask implements java.io.Serializable {
     }
 
 
-    public ListTask(Integer list_id, String list_name, List<Task> task) {
+    public ListTask(Integer list_id, String list_name, List<Task> tasks) {
         this.list_id = list_id;
         this.list_name = list_name;
-        this.task = task;
+        this.tasks = tasks;
     }
 
     public Integer getList_id() {
@@ -56,12 +56,12 @@ public class ListTask implements java.io.Serializable {
     }
 
 
-    public List<Task> getTask() {
-        return task;
+    public List<Task> getTasks() {
+        return tasks;
     }
 
-    public void setTask(List<Task> task) {
-        this.task = task;
+    public void setTasks(List<Task> task) {
+        this.tasks = task;
     }
 
 

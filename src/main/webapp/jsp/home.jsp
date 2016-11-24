@@ -20,7 +20,7 @@
             <h3>TO DO</h3>
             <div class="list">
                 <table>
-                    <c:forEach items="${list.task}" var="task">
+                    <c:forEach items="${list.tasks}" var="task">
                         <tr>
                             <c:if test="${!task.view}">
                                 <td>
@@ -32,7 +32,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="/delete?task=${task.id}" method="post">
+                                    <form action="/deleteTask?task=${task.id}" method="post">
                                         <input type="submit" value="Delete"><br>
                                     </form>
                                 </td>
@@ -49,7 +49,7 @@
             <h3>Done Tasks</h3>
             <div class="toDo">
                 <table>
-                    <c:forEach items="${list.task}" var="task">
+                    <c:forEach items="${list.tasks}" var="task">
                         <tr>
                             <c:if test="${task.view}">
                                 <td>
@@ -61,7 +61,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="/delete?task=${task.id}" method="post">
+                                    <form action="/deleteTask?task=${task.id}" method="post">
                                         <input type="submit" value="Delete" ><br>
                                     </form>
                                 </td>

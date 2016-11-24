@@ -21,7 +21,7 @@ public class HomeController {
     @Autowired
     ListService listService;
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteTask", method = RequestMethod.POST)
     void delete(@RequestParam("task") String id,
                 HttpServletResponse response) throws IOException {
         taskService.deleteTask(id);
@@ -42,7 +42,7 @@ public class HomeController {
         response.sendRedirect("home");
     }
 
-    @RequestMapping(value = "/about", method = RequestMethod.POST)
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
     String about(@RequestParam("task") String id, ModelMap modelMap) {
         modelMap.addAttribute("task", taskService.getTaskById(id));
         return "about";

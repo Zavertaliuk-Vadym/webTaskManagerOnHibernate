@@ -3,13 +3,12 @@ package interlink.dao;
 import interlink.model.ListTask;
 import interlink.model.Task;
 import org.hibernate.Criteria;
-import org.hibernate.Session;
+import org.hibernate.FetchMode;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -25,10 +24,11 @@ public class ListDAO {
     public List<ListTask> getAllListTasks() {
         Criteria criteria = sessionFactory.getCurrentSession().
                 createCriteria(ListTask.class);
+       // criteria.setFetchMode("lists", FetchMode.LAZY);
         List<ListTask> listTask = (List<ListTask>) criteria.list();
         for (ListTask task : listTask) {
             task.getList_name();
-            for (Task task1 : task.getTask()) {
+            for (Task task1 : task.getTasks()) {
                 task1.getTitle();
             }
         }
