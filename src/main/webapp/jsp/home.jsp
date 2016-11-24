@@ -28,14 +28,17 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="/delete?task=${task.id}">
-                                        <i class="material-icons" style="font-size:32px;color: red">gavel</i>
-                                    </a>
+                                    <form action="/delete?task=${task.id}" method="post">
+                                        <input type="submit" value="Delete"><br>
+                                    </form>
                                 </td>
                                 <td>
-                                    <a href="/view?task=${task.id}">
-                                        <i class="material-icons" style="font-size:32px;color: black">indeterminate_check_box</i>
-                                    </a>
+                                    <form action="/view?task=${task.id}" method="post">
+                                        <input type="submit" value="Active" ><br>
+                                    </form>
+                                    <%--<a href="/view?task=${task.id}">--%>
+                                        <%--<i class="material-icons" style="font-size:32px;color: black">indeterminate_check_box</i>--%>
+                                    <%--</a>--%>
                                 </td>
                             </c:if>
                         </tr>
@@ -57,14 +60,17 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="/delete?task=${task.id}">
-                                        <i class="material-icons" style="font-size:32px;color: red">gavel</i>
-                                    </a>
+                                    <form action="/delete?task=${task.id}" method="post">
+                                        <input type="submit" value="Delete" ><br>
+                                    </form>
                                 </td>
                                 <td>
-                                    <a href="/view?task=${task.id}">
-                                        <i class="material-icons" style="font-size:32px;color: black">check_box</i>
-                                    </a>
+                                    <form action="/view?task=${task.id}" method="post">
+                                        <input type="submit" value="Done" ><br>
+                                    </form>
+                                    <%--<a href="/view?task=${task.id}">--%>
+                                        <%--<i class="material-icons" style="font-size:32px;color: black">check_box</i>--%>
+                                    <%--</a>--%>
                                 </td>
                             </c:if>
                         </tr>

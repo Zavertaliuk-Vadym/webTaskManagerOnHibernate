@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ public class TaskController {
     @Autowired
     TaskService taskService;
 
-    @RequestMapping("/newTask")
+    @RequestMapping(value = "/newTask",method = RequestMethod.POST)
     void newTask(@RequestParam("new_task") String title,
                  @RequestParam("new_description") String description,
                  @RequestParam("new_list") Integer listId,
@@ -29,14 +30,14 @@ public class TaskController {
         response.sendRedirect("home");
     }
 
-    @RequestMapping("/delete")
+    @RequestMapping(value = "/delete",method = RequestMethod.POST)
     void delete(@RequestParam("task") String id,
                 HttpServletResponse response) throws IOException {
         taskService.deleteTask(id);
         response.sendRedirect("home");
     }
 
-    @RequestMapping("/view")
+    @RequestMapping(value = "/view",method = RequestMethod.POST)
     void swith(@RequestParam("task") String id,
                 HttpServletResponse response) throws IOException {
         taskService.switchView(id);
@@ -48,5 +49,6 @@ public class TaskController {
         modelMap.addAttribute("task",taskService.getTaskById(id));
         return "about";
     }
+
 
 }

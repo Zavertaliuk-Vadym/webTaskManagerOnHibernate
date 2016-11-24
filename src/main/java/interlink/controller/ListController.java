@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,13 +17,13 @@ public class ListController {
     @Autowired
     ListService listService;
 
-    @RequestMapping("/add_task")
+    @RequestMapping(value = "/add_task",method = RequestMethod.GET)
     String addTask(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("ListTasks", listService.getAllLists());
         return "add_task";
     }
 
-    @RequestMapping("/home")
+    @RequestMapping(value = "/home",method = RequestMethod.GET)
     String index(ModelMap modelMap) {
         modelMap.addAttribute("ListTasks", listService.getAllListsWithTasks());
         return "home";
