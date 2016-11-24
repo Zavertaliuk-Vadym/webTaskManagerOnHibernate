@@ -18,4 +18,8 @@ public class TaskService {
     public void deleteTask(String id){
         dao.deleteTask(id);
     }
+
+    public void switchView(String id) {
+        dao.switchStatusTask(id);
+    }
 }

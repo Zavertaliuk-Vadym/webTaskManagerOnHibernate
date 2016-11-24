@@ -45,7 +45,6 @@ public class TaskDAO {
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         task.setView(!task.getView());
         sessionFactory.getCurrentSession().update(task);
-        sessionFactory.getCurrentSession().getTransaction().commit();
     }
 
     public Task getTaskById(String taskId) {
