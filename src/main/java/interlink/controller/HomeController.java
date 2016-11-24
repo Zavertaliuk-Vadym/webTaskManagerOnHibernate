@@ -28,6 +28,13 @@ public class HomeController {
         response.sendRedirect("home");
     }
 
+    @RequestMapping(value = "/deleteList", method = RequestMethod.POST)
+    void deleteList(@RequestParam("task") String id,
+                HttpServletResponse response) throws IOException {
+        listService.deleteTask(id);
+        response.sendRedirect("home");
+    }
+
     @RequestMapping(value = "/view", method = RequestMethod.POST)
     void swith(@RequestParam("task") String id,
                HttpServletResponse response) throws IOException {

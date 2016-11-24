@@ -75,6 +75,9 @@
                     </c:forEach>
                 </table>
             </div>
+            <form action="/deleteList?task=${list.list_id}" method="post">
+                <input type="submit" value="Delete ${list.list_name}"><br>
+            </form>
         </div>
     </c:forEach>
 </div>

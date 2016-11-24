@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+import static org.hibernate.criterion.Restrictions.eq;
+
 @Repository
 @Transactional
 public class ListDAO {
@@ -41,7 +44,12 @@ public class ListDAO {
 
     public void addNewList(String name) {
         ListTask listTask = new ListTask(name);
-//        Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
         sessionFactory.getCurrentSession().save(listTask);
+    }
+
+    public void delete(String id) {
+        ListTask task = (ListTask) sessionFactory.getCurrentSession().createCriteria(ListTask.class)
+                .add(eq("id", parseInt(id))).uniqueResult();
+        sessionFactory.getCurrentSession().delete(task);
     }
 }
