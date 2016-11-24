@@ -2,8 +2,12 @@ package interlink.service;
 
 import interlink.dao.ListDAO;
 import interlink.dao.TaskDAO;
+import interlink.model.ListTask;
+import interlink.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TaskService {
@@ -21,5 +25,10 @@ public class TaskService {
 
     public void switchView(String id) {
         dao.switchStatusTask(id);
+    }
+
+    public Task getTaskById(String id) {
+        Task task =dao.getTaskById(id);
+        return task;
     }
 }

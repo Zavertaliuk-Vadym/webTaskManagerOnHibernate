@@ -1,4 +1,4 @@
-<jsp:useBean id="task" scope="request" type="interlink.model.Task"/>
+<%--<jsp:useBean id="task" scope="request" type="interlink.model.Task"/>--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>

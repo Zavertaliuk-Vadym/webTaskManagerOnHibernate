@@ -30,8 +30,6 @@ public class TaskDAO {
     public void addNewTask(String title, String details, int listId, String currentDay) {
         Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
         sessionFactory.getCurrentSession().save(task);
-//        sessionFactory.getCurrentSession().save(task);
-//        sessionFactory.getCurrentSession().getTransaction().commit();
     }
 
     public void deleteTask(String taskId) {
@@ -51,6 +49,7 @@ public class TaskDAO {
         Task task = (Task) sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId)))
                 .uniqueResult();
+        task.getListTask().getList_name();
         return task;
     }
 }

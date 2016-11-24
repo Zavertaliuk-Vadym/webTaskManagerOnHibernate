@@ -17,19 +17,21 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:hibernate.properties")
 public class HibernateConfig {
-    static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
-    static final Properties hibernateProperties = new Properties() {
-        {
-            setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        }
-    };
+    @Value("${db.driver}")
+    private String DRIVER_CLASS_NAME;
 
-    private String dbUrl = "jdbc:mysql://localhost:3306/Task";
+    @Value("${db.url}")
+    private String dbUrl;
 
-    private String dbUser = "root";
+    @Value("${db.username}")
+    private String dbUser;
 
-    private String dbPass = "school24";
+    @Value("${db.password}")
+    private String dbPass;
+
+    @Value("${hibernate.dialect}")
+    private Properties hibernateProperties;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {

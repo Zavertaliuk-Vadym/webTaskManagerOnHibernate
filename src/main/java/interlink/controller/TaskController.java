@@ -3,6 +3,7 @@ package interlink.controller;
 import interlink.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -40,6 +41,12 @@ public class TaskController {
                 HttpServletResponse response) throws IOException {
         taskService.switchView(id);
         response.sendRedirect("home");
+    }
+
+    @RequestMapping("/about")
+    String about(@RequestParam("task") String id, ModelMap modelMap){
+        modelMap.addAttribute("task",taskService.getTaskById(id));
+        return "about";
     }
 
 }
