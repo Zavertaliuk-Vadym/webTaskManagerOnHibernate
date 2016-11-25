@@ -30,4 +30,13 @@ public class ListService {
     public void deleteTask(String id) {
         dao.delete(id);
     }
+
+    public TasksList getListById(String id) {
+        TasksList tasksList = dao.getListById(id);
+        return tasksList;
+    }
+
+    public void updateList(String id, String name) {
+        dao.updateList(id,name);
+    }
 }
