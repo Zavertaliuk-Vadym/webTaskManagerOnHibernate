@@ -14,11 +14,11 @@
         <input type="text" name="new_description" placeholder="add description" ><br>
         <h3>Add start time</h3>
         <label>
-            <input type="date" name="new_startTime">
+            <input type="datetime-local" name="new_startTime">
         </label><br>
         <h3>Add end time</h3>
         <label>
-            <input type="date" name="new_currentTime">
+            <input type="datetime-local" name="new_currentTime">
         </label><br>
         <h3>Add list for task</h3>
         <select name="new_list">
