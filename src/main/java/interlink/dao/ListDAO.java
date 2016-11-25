@@ -52,4 +52,18 @@ public class ListDAO {
                 .add(eq("id", parseInt(id))).uniqueResult();
         sessionFactory.getCurrentSession().delete(task);
     }
+
+    public void updateList(String id, String name) {
+        TasksList tasksList = (TasksList) sessionFactory.getCurrentSession().createCriteria(TasksList.class)
+                .add(eq("id", parseInt(id))).uniqueResult();
+        tasksList.setList_name(name);
+        sessionFactory.getCurrentSession().update(tasksList);
+    }
+
+    public TasksList getListById(String id) {
+        TasksList tasksList = (TasksList) sessionFactory.getCurrentSession().createCriteria(TasksList.class)
+                .add(eq("id", parseInt(id)))
+                .uniqueResult();
+        return tasksList;
+    }
 }
