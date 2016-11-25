@@ -26,9 +26,9 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <a href="/about?task=${task.id}">
-                                        <i class="material-icons" style="font-size:32px; color: blue;">pageview</i>
-                                    </a>
+                                    <form action="/about?task=${task.id}" method="get">
+                                        <input type="submit" value="View"><br>
+                                    </form>
                                 </td>
                                 <td>
                                     <form action="/deleteTask?task=${task.id}" method="post">
@@ -37,7 +37,7 @@
                                 </td>
                                 <td>
                                     <form action="/view?task=${task.id}" method="post">
-                                        <input type="submit" value="Active" ><br>
+                                        <input type="submit" value="Active"><br>
                                     </form>
                                 </td>
                             </c:if>
@@ -55,18 +55,18 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <a href="/about?task=${task.id}">
-                                        <i class="material-icons" style="font-size:32px; color: blue;">pageview</i>
-                                    </a>
+                                    <form action="/about?task=${task.id}" method="get">
+                                        <input type="submit" value="View"><br>
+                                    </form>
                                 </td>
                                 <td>
                                     <form action="/deleteTask?task=${task.id}" method="post">
-                                        <input type="submit" value="Delete" ><br>
+                                        <input type="submit" value="Delete"><br>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="/view?task=${task.id}" method="post">
-                                        <input type="submit" value="Done" ><br>
+                                        <input type="submit" value="Done"><br>
                                     </form>
                                 </td>
                             </c:if>
