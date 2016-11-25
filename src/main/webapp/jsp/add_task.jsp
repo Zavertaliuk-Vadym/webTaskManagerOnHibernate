@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="../css/mystyle.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>New Task</title>
 </head>
 <body>
