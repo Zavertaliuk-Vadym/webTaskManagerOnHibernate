@@ -7,6 +7,7 @@
 
 <body>
 <div class="aboutTask">
+    <input type="submit" value="Home" onclick="window.location='/home'"><br>
     <form action="/changeTask" method="post">
         <input type="hidden" name="taskId" value="${task.id}"><br>
         <h3>Title</h3>

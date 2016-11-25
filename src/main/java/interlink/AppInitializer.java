@@ -11,16 +11,16 @@ import javax.servlet.ServletRegistration;
 
 public class AppInitializer implements WebApplicationInitializer {
 
-	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
-		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(WebMvcConfig.class, HibernateConfig.class);
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+        rootContext.register(WebMvcConfig.class, HibernateConfig.class);
 
-		servletContext.addListener(new ContextLoaderListener(rootContext));
-		rootContext.setServletContext(servletContext);
+        servletContext.addListener(new ContextLoaderListener(rootContext));
+        rootContext.setServletContext(servletContext);
 
-		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(rootContext));
-		dispatcher.addMapping("/");
-		dispatcher.setLoadOnStartup(1);
-	}
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(rootContext));
+        dispatcher.addMapping("/");
+        dispatcher.setLoadOnStartup(1);
+    }
 }

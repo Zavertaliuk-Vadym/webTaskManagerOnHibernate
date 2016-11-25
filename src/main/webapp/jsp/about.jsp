@@ -1,5 +1,3 @@
-<%--<jsp:useBean id="task" scope="request" type="interlink.model.Task"/>--%>
-<%--<jsp:useBean id="task" scope="request" type="interlink.model.Task"/>--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -22,7 +20,6 @@
         ${task.endTime}
         <h4>List:</h4>
         ${task.tasksList.list_name}
-        <%--${task.tasksList.list_name}--%>
     </table>
     <input type="submit" value="Correct task" onclick="window.location='/change?id=${task.id}'" style="font-size:12px"><br>
 </div>

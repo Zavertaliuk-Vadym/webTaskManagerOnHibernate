@@ -1,6 +1,5 @@
 package interlink.controller;
 
-import interlink.service.ListService;
 import interlink.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
