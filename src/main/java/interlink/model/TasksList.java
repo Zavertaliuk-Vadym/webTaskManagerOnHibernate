@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "list")
-public class TasksList implements java.io.Serializable {
+public class TasksList {
 
     @Id
     @Column(name = "id")

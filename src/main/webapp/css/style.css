@@ -63,12 +63,15 @@ a:link {
 .toDo {
     background-color: yellowgreen;
 }
-.addList{
+
+.addList {
     background-color: yellowgreen;
 }
-.changeTask{
+
+.changeTask {
     background-color: yellowgreen;
 }
-.changeList{
+
+.changeList {
     background-color: yellowgreen;
 }
