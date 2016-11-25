@@ -23,8 +23,7 @@ public class TaskDAO {
 
     public List<Task> getAllTasks() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Task.class);
-        List<Task> list = (List<Task>) criteria.list();
-        return list;
+        return (List<Task>) criteria.list();
     }
 
     public void addNewTask(String title, String details, int listId, String currentDay,String startTime) {

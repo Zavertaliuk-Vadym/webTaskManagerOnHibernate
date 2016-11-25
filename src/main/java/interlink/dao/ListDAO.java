@@ -38,8 +38,7 @@ public class ListDAO {
     public List<TasksList> getAllLists() {
         Criteria criteria = sessionFactory.getCurrentSession().
                 createCriteria(TasksList.class);
-        List<TasksList> tasksList = (List<TasksList>) criteria.list();
-        return tasksList;
+        return (List<TasksList>) criteria.list();
     }
 
     public void addNewList(String name) {
@@ -61,9 +60,8 @@ public class ListDAO {
     }
 
     public TasksList getListById(String id) {
-        TasksList tasksList = (TasksList) sessionFactory.getCurrentSession().createCriteria(TasksList.class)
+        return (TasksList) sessionFactory.getCurrentSession().createCriteria(TasksList.class)
                 .add(eq("id", parseInt(id)))
                 .uniqueResult();
-        return tasksList;
     }
 }
