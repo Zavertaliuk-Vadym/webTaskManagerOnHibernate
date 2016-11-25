@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/style.css">
-    <title>change list</title>
+    <title>Change list</title>
 </head>
 <body>
 <div class="changeList">
