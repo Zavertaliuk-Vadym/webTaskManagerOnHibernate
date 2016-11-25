@@ -9,12 +9,24 @@
 <div class="aboutTask">
     <form action="/changeTask" method="post">
         <input type="hidden" name="taskId" value="${task.id}"><br>
-        <input type="text" name="title" value="${task.title}" placeholder="add title"><br>
-        <input type="text" name="details" value="${task.details}" placeholder="add details"><br>
-        <input type="text" name="startTime" value="${task.startTime}" placeholder="add start time"><br>
-        <input type="text" name="endTime" value="${task.endTime}" placeholder="add end time"><br>
-        <input type="text" name="listId" value="${task.tasksList.list_name}" placeholder="add list"><br>
-        <input type="submit" value="change"><br>
+        <h3>Title</h3>
+        <input type="text" name="title" value="${task.title}" placeholder="add title" required><br>
+        <h3>Details</h3>
+        <input type="text" name="details" value="${task.details}" placeholder="add details" required><br>
+        <h3>Start Time</h3>
+        <label>
+            <input type="date" name="startTime" required>
+        </label><br>
+        <h3>End Time</h3>
+        <label>
+            <input type="date" name="endTime" required>
+        </label><br>
+        <select name="new_list">
+            <c:forEach items="${ListTasks}" var="listTasks">
+                <option value="${listTasks.list_id}">${listTasks.list_name}</option>
+            </c:forEach>
+        </select><br>
+        <input type="submit" value="Change"><br>
     </form>
 </div>
 </body>

@@ -1,5 +1,6 @@
 package interlink.controller;
 
+import interlink.service.ListService;
 import interlink.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +15,17 @@ public class ChangeController {
     @Autowired
     TaskService taskService;
 
+
     @RequestMapping(value = "/changeTask", method = RequestMethod.POST)
     String changeTask(@RequestParam("taskId") String taskId,
                       @RequestParam("title") String title,
-            @RequestParam("details") String details,
-            @RequestParam("startTime") String startTime,
-            @RequestParam("endTime") String endTime,
+                      @RequestParam("details") String details,
+                      @RequestParam("startTime") String startTime,
+                      @RequestParam("endTime") String endTime,
+                      @RequestParam("new_list") String listId,
+
                       ModelMap modelMap) {
-            taskService.updateTask(taskId, title, details, startTime, endTime);
+            taskService.updateTask(taskId, title, details, startTime, endTime,listId);
             modelMap.addAttribute("task", taskService.getTaskById(taskId));
        return "about";
     }

@@ -11,8 +11,8 @@ public class TaskService {
     @Autowired
     TaskDAO dao;
 
-    public void addNewTask(String title, String details, int listId, String currentDay) {
-        dao.addNewTask(title, details, listId, currentDay);
+    public void addNewTask(String title, String details, int listId, String currentDay,String startTime) {
+        dao.addNewTask(title, details, listId, currentDay,startTime);
     }
 
     public void deleteTask(String id){
@@ -28,7 +28,7 @@ public class TaskService {
         return task;
     }
 
-    public void updateTask(String taskId, String title, String details, String startTime, String endTime) {
-        dao.updateTask(taskId,title,details,startTime,endTime);
+    public void updateTask(String taskId, String title, String details, String startTime, String endTime,String listId) {
+        dao.updateTask(taskId,title,details,startTime,endTime,listId);
     }
 }

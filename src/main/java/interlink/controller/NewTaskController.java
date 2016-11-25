@@ -20,9 +20,10 @@ public class NewTaskController {
     void newTask(@RequestParam("new_task") String title,
                  @RequestParam("new_description") String description,
                  @RequestParam("new_list") Integer listId,
+                 @RequestParam("new_startTime") String startTime,
                  @RequestParam("new_currentTime") String currentTime, HttpServletResponse response
     ) throws IOException {
-        taskService.addNewTask(title, description, listId, currentTime);
+        taskService.addNewTask(title, description, listId, currentTime,startTime);
         response.sendRedirect("home");
     }
 }

@@ -13,6 +13,9 @@
         <label>
             <input type="date" name="new_currentTime">
         </label>
+        <label>
+            <input type="date" name="new_startTime">
+        </label>
         <select name="new_list">
             <c:forEach items="${ListTasks}" var="listTasks">
                 <option value="${listTasks.list_id}">${listTasks.list_name}</option>

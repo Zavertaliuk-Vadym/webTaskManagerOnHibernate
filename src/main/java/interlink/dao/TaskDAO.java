@@ -27,8 +27,8 @@ public class TaskDAO {
         return list;
     }
 
-    public void addNewTask(String title, String details, int listId, String currentDay) {
-        Task task = new Task(listId, title, details, Boolean.FALSE, new Date(System.currentTimeMillis()).toString(), currentDay);
+    public void addNewTask(String title, String details, int listId, String currentDay,String startTime) {
+        Task task = new Task(listId, title, details, Boolean.FALSE, startTime, currentDay);
         sessionFactory.getCurrentSession().save(task);
     }
 
@@ -53,13 +53,14 @@ public class TaskDAO {
         return task;
     }
 
-    public void updateTask(String taskId, String title, String details, String startTime, String endTime) {
+    public void updateTask(String taskId, String title, String details, String startTime, String endTime,String listId) {
         Task task = (Task) sessionFactory.getCurrentSession().createCriteria(Task.class)
                 .add(eq("id", parseInt(taskId))).uniqueResult();
         task.setTitle(title);
         task.setDetails(details);
         task.setStartTime(startTime);
         task.setEndTime(endTime);
+        task.setListId(parseInt(listId));
         sessionFactory.getCurrentSession().update(task);
     }
 }
