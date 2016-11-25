@@ -3,6 +3,7 @@ package interlink.dao;
 import interlink.model.TasksList;
 import interlink.model.Task;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,7 +24,7 @@ public class ListDAO {
     public List<TasksList> getAllListTasks() {
         Criteria criteria = sessionFactory.getCurrentSession().
                 createCriteria(TasksList.class);
-       // criteria.setFetchMode("lists", FetchMode.LAZY);
+//        criteria.setFetchMode("tasks",FetchMode.LAZY);
         List<TasksList> tasksList = (List<TasksList>) criteria.list();
         for (TasksList task : tasksList) {
             task.getList_name();

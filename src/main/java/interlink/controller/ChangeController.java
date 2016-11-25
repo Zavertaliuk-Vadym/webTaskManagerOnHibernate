@@ -23,7 +23,6 @@ public class ChangeController {
                       @RequestParam("startTime") String startTime,
                       @RequestParam("endTime") String endTime,
                       @RequestParam("new_list") String listId,
-
                       ModelMap modelMap) {
             taskService.updateTask(taskId, title, details, startTime, endTime,listId);
             modelMap.addAttribute("task", taskService.getTaskById(taskId));
