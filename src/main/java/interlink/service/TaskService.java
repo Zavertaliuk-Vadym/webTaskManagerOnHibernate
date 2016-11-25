@@ -28,13 +28,7 @@ public class TaskService {
         return task;
     }
 
-    public void updateTask(String taskId, String title, String details, String startTime, String endTime, Integer listId) {
-        dao.updateTask(taskId,title,details,startTime,endTime,listId);
-    }
-
-    public Task qwerty(String taskId, String title, String details, String startTime, String endTime, Integer listId) {
-        dao.updateTask(taskId,title,details,startTime,endTime,listId);
-        Task task =dao.getTaskById(taskId);
-        return task;
+    public void updateTask(String taskId, String title, String details, String startTime, String endTime) {
+        dao.updateTask(taskId,title,details,startTime,endTime);
     }
 }
