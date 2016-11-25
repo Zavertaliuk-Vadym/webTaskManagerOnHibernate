@@ -21,6 +21,7 @@
         <label>
             <input type="date" name="endTime" required>
         </label><br>
+        <h3>List name</h3>
         <select name="new_list">
             <c:forEach items="${ListTasks}" var="listTasks">
                 <option value="${listTasks.list_id}">${listTasks.list_name}</option>

@@ -8,19 +8,24 @@
 <div class="addTasks">
     <input type="submit" value="Home" onclick="window.location='/home'"><br>
     <form action="/newTask" method="post">
-        <input type="text" name="new_task" placeholder="add task" required>
-        <input type="text" name="new_description" placeholder="add description" >
-        <label>
-            <input type="date" name="new_currentTime">
-        </label>
+        <h3>Add task</h3>
+        <input type="text" name="new_task" placeholder="add task" required><br>
+        <h3>Add description</h3>
+        <input type="text" name="new_description" placeholder="add description" ><br>
+        <h3>Add start time</h3>
         <label>
             <input type="date" name="new_startTime">
-        </label>
+        </label><br>
+        <h3>Add end time</h3>
+        <label>
+            <input type="date" name="new_currentTime">
+        </label><br>
+        <h3>Add list for task</h3>
         <select name="new_list">
             <c:forEach items="${ListTasks}" var="listTasks">
                 <option value="${listTasks.list_id}">${listTasks.list_name}</option>
             </c:forEach>
-        </select>
+        </select><br>
         <input type="submit" value="Add Task"><br>
     </form>
 </div>

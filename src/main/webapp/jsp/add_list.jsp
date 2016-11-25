@@ -8,7 +8,8 @@
 <div class="addList">
     <input type="submit" value="Home" onclick="window.location='/home'"><br>
     <form action="/newList" method="post">
-        <input type="text" name="name" placeholder="add name" required>
+        <h3>Add name for new List</h3>
+        <input type="text" name="name" placeholder="add name" required><br>
         <input type="submit" value="Add List"><br>
     </form>
 </div>
