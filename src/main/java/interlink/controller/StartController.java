@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value = "/home")
 public class StartController {
 
     @Autowired
     ListService listService;
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     String home(ModelMap modelMap) {
         modelMap.addAttribute("ListTasks", listService.getAllListsWithTasks());
         return "home";

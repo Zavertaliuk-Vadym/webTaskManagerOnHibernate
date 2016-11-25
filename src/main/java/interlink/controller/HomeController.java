@@ -47,15 +47,4 @@ public class HomeController {
         modelMap.addAttribute("task", taskService.getTaskById(id));
         return "about";
     }
-
-    @RequestMapping(value = "/add_task", method = RequestMethod.GET)
-    String addTask(ModelMap modelMap) throws IOException {
-        modelMap.addAttribute("ListTasks", listService.getAllLists());
-        return "add_task";
-    }
-
-    @RequestMapping(value = "/add_list", method = RequestMethod.GET)
-    String addlist() throws IOException {
-        return "add_list";
-    }
 }

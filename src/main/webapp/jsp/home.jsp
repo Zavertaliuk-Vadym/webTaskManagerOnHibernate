@@ -7,10 +7,10 @@
 </head>
 <body>
 <div class="allTasks">
-    <form action="/add_task" method="get">
+    <form action="/newTask" method="get">
         <input type="submit" value="Add Task"><br>
     </form>
-    <form action="/add_list" method="get">
+    <form action="/newList" method="get">
         <input type="submit" value="Add List"><br>
     </form>
     <c:forEach items="${ListTasks}" var="list">

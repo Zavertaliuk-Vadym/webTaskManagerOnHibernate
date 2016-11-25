@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
+@RequestMapping(value = "/changeTask")
 public class TaskController {
 
     @Autowired
@@ -21,7 +21,21 @@ public class TaskController {
     @Autowired
     ListService listService;
 
-    @RequestMapping(value = "/change", method = RequestMethod.GET)
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    String changeTask(@RequestParam("taskId") String taskId,
+                      @RequestParam("title") String title,
+                      @RequestParam("details") String details,
+                      @RequestParam("startTime") String startTime,
+                      @RequestParam("endTime") String endTime,
+                      @RequestParam("new_list") String listId,
+                      ModelMap modelMap) {
+            taskService.updateTask(taskId, title, details, startTime, endTime,listId);
+            modelMap.addAttribute("task", taskService.getTaskById(taskId));
+       return "about";
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
     String aboutTask(@RequestParam("id") String id,
                      ModelMap modelMap) throws IOException {
         modelMap.addAttribute("task", taskService.getTaskById(id));
