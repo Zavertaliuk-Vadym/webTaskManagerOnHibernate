@@ -15,11 +15,11 @@
         <input type="text" name="details" value="${task.details}" placeholder="add details" required><br>
         <h3>Start Time</h3>
         <label>
-            <input type="datetime-local" name="startTime">
+            <input type="datetime-local" name="startTime" required>
         </label><br>
         <h3>End Time</h3>
         <label>
-            <input type="datetime-local" name="endTime">
+            <input type="datetime-local" name="endTime" required>
         </label><br>
         <h3>List name</h3>
         <select name="new_list">
