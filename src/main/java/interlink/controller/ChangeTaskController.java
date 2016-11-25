@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping(value = "/changeTask")
-public class TaskController {
+public class ChangeTaskController {
 
     @Autowired
     TaskService taskService;
@@ -32,7 +32,7 @@ public class TaskController {
                       ModelMap modelMap) {
             taskService.updateTask(taskId, title, details, startTime, endTime,listId);
             modelMap.addAttribute("task", taskService.getTaskById(taskId));
-       return "about";
+       return "aboutTask";
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -40,6 +40,6 @@ public class TaskController {
                      ModelMap modelMap) throws IOException {
         modelMap.addAttribute("task", taskService.getTaskById(id));
         modelMap.addAttribute("ListTasks", listService.getAllLists());
-        return "change";
+        return "changeTask";
     }
 }

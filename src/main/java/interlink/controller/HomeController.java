@@ -45,6 +45,6 @@ public class HomeController {
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     String about(@RequestParam("task") String id, ModelMap modelMap) {
         modelMap.addAttribute("task", taskService.getTaskById(id));
-        return "about";
+        return "aboutTask";
     }
 }
