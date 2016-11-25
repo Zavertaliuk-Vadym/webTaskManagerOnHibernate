@@ -26,17 +26,18 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <form action="/about?task=${task.id}" method="get">
+                                    <form action="/about" method="get">
+                                        <input type="hidden" name="id" value="${task.id}">
                                         <input type="submit" value="View"><br>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="/deleteTask?task=${task.id}" method="post">
+                                    <form action="/deleteTask?id=${task.id}" method="post">
                                         <input type="submit" value="Delete"><br>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="/view?task=${task.id}" method="post">
+                                    <form action="/view?id=${task.id}" method="post">
                                         <input type="submit" value="Active"><br>
                                     </form>
                                 </td>
@@ -55,17 +56,18 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <form action="/about?task=${task.id}" method="get">
+                                    <form action="/about" method="get">
+                                        <input type="hidden" name="id" value="${task.id}">
                                         <input type="submit" value="View"><br>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="/deleteTask?task=${task.id}" method="post">
+                                    <form action="/deleteTask?id=${task.id}" method="post">
                                         <input type="submit" value="Delete"><br>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="/view?task=${task.id}" method="post">
+                                    <form action="/view?id=${task.id}" method="post">
                                         <input type="submit" value="Done"><br>
                                     </form>
                                 </td>
@@ -78,7 +80,7 @@
                 <input type="hidden" name="id" value="${list.list_id}">
                 <input type="submit" value="Change ${list.list_name}"><br>
             </form>
-            <form action="/deleteList?task=${list.list_id}" method="post">
+            <form action="/deleteList?id=${list.list_id}" method="post">
                 <input type="submit" value="Delete ${list.list_name}"><br>
             </form>
         </div>

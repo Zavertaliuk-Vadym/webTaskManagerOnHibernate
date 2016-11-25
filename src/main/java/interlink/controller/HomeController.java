@@ -22,28 +22,28 @@ public class HomeController {
     ListService listService;
 
     @RequestMapping(value = "/deleteTask", method = RequestMethod.POST)
-    void deleteTask(@RequestParam("task") String id,
+    void deleteTask(@RequestParam("id") String id,
                 HttpServletResponse response) throws IOException {
         taskService.deleteTask(id);
         response.sendRedirect("home");
     }
 
     @RequestMapping(value = "/deleteList", method = RequestMethod.POST)
-    void deleteList(@RequestParam("task") String id,
+    void deleteList(@RequestParam("id") String id,
                 HttpServletResponse response) throws IOException {
         listService.deleteTask(id);
         response.sendRedirect("home");
     }
 
     @RequestMapping(value = "/view", method = RequestMethod.POST)
-    void swith(@RequestParam("task") String id,
+    void swith(@RequestParam("id") String id,
                HttpServletResponse response) throws IOException {
         taskService.switchView(id);
         response.sendRedirect("home");
     }
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)
-    String about(@RequestParam("task") String id, ModelMap modelMap) {
+    String about(@RequestParam("id") String id, ModelMap modelMap) {
         modelMap.addAttribute("task", taskService.getTaskById(id));
         return "aboutTask";
     }
