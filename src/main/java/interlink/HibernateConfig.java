@@ -20,7 +20,7 @@ public class HibernateConfig {
 
     static final Properties hibernateProperties = new Properties() {
         {
-            setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+            setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
             setProperty("hibernate.hbm2ddl.auto", "update");
             setProperty("hibernate.show_sql", "false");
             setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate4.SpringSessionContext");
