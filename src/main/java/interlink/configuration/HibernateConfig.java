@@ -23,7 +23,7 @@ public class HibernateConfig {
         {
             setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
             setProperty("hibernate.hbm2ddl.auto", "update");
-            setProperty("hibernate.show_sql", "false");
+            setProperty("hibernate.show_sql", "true");
             setProperty("hibernate.current_session_context_class", "org.springframework.orm.hibernate4.SpringSessionContext");
         }
     };
@@ -31,19 +31,10 @@ public class HibernateConfig {
     @Value("${db.driver}")
     private String DRIVER_CLASS_NAME;
 
-    @Value("${db.url}")
-    private String dbUrl;
-
-    @Value("${db.username}")
-    private String dbUser;
-
-    @Value("${db.password}")
-    private String dbPass;
-
     @Bean
     public static Parser parser() throws URISyntaxException {
 
-        return new Parser(System.getenv("URL"));
+        return new Parser(System.getenv("URI"));
     }
 
     @Bean
