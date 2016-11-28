@@ -39,9 +39,6 @@ public class HibernateConfig {
     @Value("${db.password}")
     private String dbPass;
 
-//    @Value("${hibernate.dialect}")
-//    private Properties hibernateProperties;
-
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
