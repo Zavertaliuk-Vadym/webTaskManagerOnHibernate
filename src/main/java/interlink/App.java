@@ -16,11 +16,11 @@ import java.nio.file.Path;
 public class App {
 
     public static void main(String[] args) throws Exception {
-
         Tomcat tomcat = new Tomcat();
+        System.out.println(Integer.valueOf(System.getenv("PORT")));
         Path tempPath = Files.createTempDirectory("tomcat-base-dir");
+        tomcat.setPort(Integer.valueOf(System.getenv("PORT")));
         tomcat.setBaseDir(tempPath.toString());
-        tomcat.setPort(8080);
 
         File webContentFolder = new File("src/main/webapp/");
         StandardContext ctx = (StandardContext) tomcat.addWebapp("", webContentFolder.getAbsolutePath());
