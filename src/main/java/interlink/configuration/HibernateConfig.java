@@ -11,6 +11,7 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 @Configuration
@@ -28,7 +29,7 @@ public class HibernateConfig {
     };
 
     @Value("${db.driver}")
-    private String  DRIVER_CLASS_NAME;
+    private String DRIVER_CLASS_NAME;
 
     @Value("${db.url}")
     private String dbUrl;
@@ -38,6 +39,12 @@ public class HibernateConfig {
 
     @Value("${db.password}")
     private String dbPass;
+
+    @Bean
+    public static Parser parser() throws URISyntaxException {
+
+        return new Parser(System.getenv("URL"));
+    }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -62,8 +69,15 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource(dbUrl, dbUser, dbPass);
-        dataSource.setDriverClassName(DRIVER_CLASS_NAME);
+        DriverManagerDataSource dataSource = null;
+        try {
+            dataSource = new DriverManagerDataSource(parser().getUrl(),
+                    parser().getUser(),
+                    parser().getPassword());
+            dataSource.setDriverClassName(DRIVER_CLASS_NAME);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         return dataSource;
     }
 }

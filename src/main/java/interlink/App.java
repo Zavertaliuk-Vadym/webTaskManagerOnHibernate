@@ -21,7 +21,6 @@ public class App {
         Path tempPath = Files.createTempDirectory("tomcat-base-dir");
         tomcat.setPort(Integer.valueOf(System.getenv("PORT")));
         tomcat.setBaseDir(tempPath.toString());
-
         File webContentFolder = new File("src/main/webapp/");
         StandardContext ctx = (StandardContext) tomcat.addWebapp("", webContentFolder.getAbsolutePath());
         ctx.setParentClassLoader(App.class.getClassLoader());
