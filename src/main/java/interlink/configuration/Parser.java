@@ -4,12 +4,12 @@ package interlink.configuration;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class Parser {
+class Parser {
     private String url;
     private String user;
     private String password;
 
-    public Parser(String fullUrl) throws URISyntaxException {
+    Parser(String fullUrl) throws URISyntaxException {
         URI uri = new URI(fullUrl);
         String afterJdbc = uri.getScheme() + "ql://";
         String host = uri.getHost();
@@ -23,15 +23,15 @@ public class Parser {
         this.password = name.substring(name.indexOf(":") + 1);
     }
 
-    public String getUrl() {
+    String getUrl() {
         return url;
     }
 
-    public String getUser() {
+    String getUser() {
         return user;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return password;
     }
 }
