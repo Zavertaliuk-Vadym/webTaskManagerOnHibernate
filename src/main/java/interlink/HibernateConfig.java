@@ -28,7 +28,7 @@ public class HibernateConfig {
     };
 
     @Value("${db.driver}")
-    private String DRIVER_CLASS_NAME;
+    private String  DRIVER_CLASS_NAME;
 
     @Value("${db.url}")
     private String dbUrl;
