@@ -1,7 +1,12 @@
 package interlink.model;
 
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +19,7 @@ public class TasksList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer list_id;
 
+    @Cascade(CascadeType.REMOVE)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tasksList")
     private List<Task> tasks = new ArrayList();
 
