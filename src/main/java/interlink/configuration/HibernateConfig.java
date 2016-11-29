@@ -34,7 +34,7 @@ public class HibernateConfig {
     @Bean
     public static Parser parser() throws URISyntaxException {
 
-        return new Parser(System.getenv("URI"));
+        return new Parser(System.getenv("DATABASE_URL"));
     }
 
     @Bean
