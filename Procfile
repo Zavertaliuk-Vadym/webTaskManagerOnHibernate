@@ -1,0 +1,1 @@
+web:    java -jar target/webTaskManagerOnHibernate-1.0.jar
