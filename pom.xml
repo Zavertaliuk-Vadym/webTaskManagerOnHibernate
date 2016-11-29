@@ -6,7 +6,6 @@
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>webTaskManagerOnHibernate</name>
-
     <build>
         <finalName>embeddedTomcatSample</finalName>
         <plugins>
