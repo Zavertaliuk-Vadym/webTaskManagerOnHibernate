@@ -9,7 +9,7 @@
     <form action="/newTask" method="get">
         <input type="submit" value="Add Task"><br>
     </form>
-    <form action="list/newList" method="get">
+    <form action="/newList" method="get">
         <input type="submit" value="Add List"><br>
     </form>
     <c:forEach items="${ListTasks}" var="list">
@@ -25,7 +25,7 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <form action="task/details/" method="get">
+                                    <form action="/task/${task.id}/about" method="get">
                                         <input type="hidden" name="id" value="${task.id}">
                                         <input type="submit" value="View"><br>
                                     </form>
@@ -57,7 +57,7 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <form action="task/details/" method="get">
+                                    <form action="/task/${task.id}/about" method="get">
                                         <input type="hidden" name="id" value="${task.id}">
                                         <input type="submit" value="View"><br>
                                     </form>
@@ -79,7 +79,7 @@
                     </c:forEach>
                 </table>
             </div>
-            <form action="list/about" method="get">
+            <form action="/list/${list.list_id}/view" method="get">
                 <input type="hidden" name="id" value="${list.list_id}">
                 <input type="submit" value="Change ${list.list_name}"><br>
             </form>

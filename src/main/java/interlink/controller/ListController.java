@@ -17,18 +17,19 @@ public class ListController {
     @Autowired
     ListService listService;
 
-
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    void changeTask(@RequestParam("id") String id,
-                    @RequestParam("name") String name,
-                    HttpServletResponse response) throws IOException {
+    @RequestMapping(value = "/list/{listId}/update", method = RequestMethod.POST)
+    String changeTask(@RequestParam("id") String id,
+                      @RequestParam("name") String name,
+                      HttpServletResponse response,
+                      @PathVariable("listId") String listId) throws IOException {
         listService.updateList(id, name);
-        response.sendRedirect("home");
+        return "redirect:/home/list/{listId}/update";
     }
 
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
-    String aboutTask(@RequestParam("id") String id,
-                     ModelMap modelMap) throws IOException {
+    @RequestMapping(value = "/list/{listId}/view", method = RequestMethod.GET)
+    String viewList(@RequestParam("id") String id,
+                    ModelMap modelMap,
+                    @PathVariable("listId") String listId) throws IOException {
         modelMap.addAttribute("list", listService.getListById(id));
         return "changeList";
     }
@@ -37,9 +38,11 @@ public class ListController {
     String addlist() throws IOException {
         return "add_list";
     }
+
     @RequestMapping(value = "/list/{listId}/delete", method = RequestMethod.POST)
     String deleteList(@RequestParam("id") String id,
-                      HttpServletResponse response, @PathVariable("listId") String listId) throws IOException {
+                      HttpServletResponse response,
+                      @PathVariable("listId") String listId) throws IOException {
         listService.deleteList(id);
         return "redirect:/home/list/{listId}/delete";
     }

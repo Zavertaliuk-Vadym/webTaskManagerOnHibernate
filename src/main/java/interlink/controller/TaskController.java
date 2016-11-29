@@ -32,9 +32,9 @@ public class TaskController {
         return "redirect:/home/task/{taskId}/status";
     }
 
-    @RequestMapping(value = "task/details", method = RequestMethod.GET)
-    String about(@RequestParam("id") String id, ModelMap modelMap) {
+    @RequestMapping(value = "/task/{taskId}/about", method = RequestMethod.GET)
+    String about(@RequestParam("id") String id, ModelMap modelMap, @PathVariable("taskId") String taskId) {
         modelMap.addAttribute("task", taskService.getTaskById(id));
-        return "aboutTask";
+        return "/task/{taskId}/aboutTask";
     }
 }

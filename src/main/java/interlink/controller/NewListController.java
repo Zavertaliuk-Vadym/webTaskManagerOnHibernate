@@ -12,19 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping(value = "/newList")
 public class NewListController {
 
     @Autowired
     ListService listService;
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    void newList(@RequestParam("name") String name,
-                 HttpServletResponse response
-    ) throws IOException {
+    @RequestMapping(value = "list/newList", method = RequestMethod.POST)
+    String newList(@RequestParam("name") String name) throws IOException {
         listService.addNewList(name);
-        response.sendRedirect("home");
+        return "redirect:/home/list/newList";
     }
-
-
 }

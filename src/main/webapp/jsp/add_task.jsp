@@ -7,7 +7,7 @@
 <body>
 <div class="addTasks">
     <input type="submit" value="Home" onclick="window.location='/home'"><br>
-    <form action="/newTask" method="post">
+    <form action="task/newTask" method="post">
         <h3>Add task</h3>
         <input type="text" name="new_task" placeholder="add task" required><br>
         <h3>Add description</h3>

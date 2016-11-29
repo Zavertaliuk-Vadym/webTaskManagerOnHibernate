@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping(value = "/newTask")
 public class NewTaskController {
 
     @Autowired
@@ -22,20 +21,20 @@ public class NewTaskController {
     @Autowired
     ListService listService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/newTask", method = RequestMethod.GET)
     String addTask(ModelMap modelMap) throws IOException {
         modelMap.addAttribute("ListTasks", listService.getAllLists());
         return "add_task";
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    void newTask(@RequestParam("new_task") String title,
+    @RequestMapping(value = "task/newTask", method = RequestMethod.POST)
+    String newTask(@RequestParam("new_task") String title,
                  @RequestParam("new_description") String description,
                  @RequestParam("new_list") Integer listId,
                  @RequestParam("new_startTime") String startTime,
                  @RequestParam("new_currentTime") String currentTime, HttpServletResponse response
     ) throws IOException {
         taskService.addNewTask(title, description, listId, currentTime, startTime);
-        response.sendRedirect("home");
+        return "redirect:/home/task/newTask";
     }
 }
