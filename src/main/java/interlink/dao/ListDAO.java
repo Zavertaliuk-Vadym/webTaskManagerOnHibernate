@@ -25,14 +25,12 @@ public class ListDAO {
         Criteria criteria = sessionFactory.getCurrentSession().
                 createCriteria(TasksList.class);
 //        criteria.setFetchMode("tasks",FetchMode.LAZY);
-        List<TasksList> tasksList = (List<TasksList>) criteria.list();
-        for (TasksList task : tasksList) {
-            task.getList_name();
-            for (Task task1 : task.getTasks()) {
-                task1.getTitle();
-            }
+        List<TasksList> listTasks = (List<TasksList>) criteria.list();
+        for (TasksList tasksList: listTasks) {
+            tasksList.getList_name();
+            tasksList.getTasks().forEach(Task::getTitle);
         }
-        return tasksList;
+        return listTasks;
     }
 
     public List<TasksList> getAllLists() {
