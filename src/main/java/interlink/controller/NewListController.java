@@ -20,15 +20,11 @@ public class NewListController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     void newList(@RequestParam("name") String name,
-                  HttpServletResponse response
+                 HttpServletResponse response
     ) throws IOException {
         listService.addNewList(name);
         response.sendRedirect("home");
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    String addlist() throws IOException {
-        return "add_list";
-    }
 
 }

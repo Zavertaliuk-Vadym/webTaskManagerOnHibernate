@@ -7,7 +7,7 @@
 <body>
 <div class="changeList">
     <input type="submit" value="Home" onclick="window.location='/home'"><br>
-    <form action="/changeList" method="post">
+    <form action="/list" method="post">
         <input type="hidden" name="id" value="${list.list_id}"><br>
         <h3>Title</h3>
         <input type="text" name="name" value="${list.list_name}" placeholder="add title" required><br>

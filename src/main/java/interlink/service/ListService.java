@@ -27,7 +27,7 @@ public class ListService {
         dao.addNewList(name);
     }
 
-    public void deleteTask(String id) {
+    public void deleteList(String id) {
         dao.delete(id);
     }
 
