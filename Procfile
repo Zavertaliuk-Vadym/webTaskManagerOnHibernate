@@ -1,1 +1,1 @@
-web:    java -jar target/webTaskManagerOnHibernate.jar
+web:    java -jar target/ToDoList.jar
