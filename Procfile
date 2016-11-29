@@ -1,1 +1,1 @@
-web:    java -jar target/ToDoList.jar
+web: sh target/bin/webapp
