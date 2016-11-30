@@ -6,10 +6,10 @@
 </head>
 <body>
 <div class="allTasks">
-    <form action="/newTask" method="get">
+    <form action="/task/newTask" method="get">
         <input type="submit" value="Add Task"><br>
     </form>
-    <form action="/newList" method="get">
+    <form action="/list/newList" method="get">
         <input type="submit" value="Add List"><br>
     </form>
     <c:forEach items="${ListTasks}" var="list">
@@ -25,8 +25,8 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <form action="/task/${task.id}/about" method="get">
-                                        <input type="hidden" name="id" value="${task.id}">
+                                    <form action="/task/${task.id}/description" method="get">
+                                        <%--<input type="hidden" name="id" value="${task.id}">--%>
                                         <input type="submit" value="View"><br>
                                     </form>
                                 </td>
@@ -57,8 +57,7 @@
                                         ${task.title}
                                 </td>
                                 <td>
-                                    <form action="/task/${task.id}/about" method="get">
-                                        <input type="hidden" name="id" value="${task.id}">
+                                    <form action="/task/${task.id}/description" method="get">
                                         <input type="submit" value="View"><br>
                                     </form>
                                 </td>
@@ -80,7 +79,7 @@
                 </table>
             </div>
             <form action="/list/${list.list_id}/view" method="get">
-                <input type="hidden" name="id" value="${list.list_id}">
+                <%--<input type="hidden" name="id" value="${list.list_id}">--%>
                 <input type="submit" value="Change ${list.list_name}"><br>
             </form>
             <form action="/list/${list.list_id}/delete" method="post">

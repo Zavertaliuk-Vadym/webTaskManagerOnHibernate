@@ -21,7 +21,7 @@
         <h4>List:</h4>
         ${task.tasksList.list_name}
     </table>
-    <input type="submit" value="Correct task" onclick="window.location='/changeTask?id=${task.id}'" style="font-size:12px"><br>
+    <input type="submit" value="Correct task" onclick="window.location='/task/${task.id}/changeTask'" style="font-size:12px"><br>
 </div>
 </body>
 </html>

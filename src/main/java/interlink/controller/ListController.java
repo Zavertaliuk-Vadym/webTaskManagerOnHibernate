@@ -17,34 +17,39 @@ import java.io.IOException;
 public class ListController {
     @Autowired
     ListService listService;
-
+//add new list
+    @RequestMapping(value = "/list/newList", method = RequestMethod.GET)
+    String addlist() throws IOException {
+        return "add_list";
+    }
+//view descr of task
+    @RequestMapping(value = "/list/{listId}/view", method = RequestMethod.GET)
+    String viewList(ModelMap modelMap,
+                    @PathVariable("listId") String listId) throws IOException {
+        modelMap.addAttribute("list", listService.getListById(listId));
+        return "changeList";
+    }
+//update task
     @RequestMapping(value = "/list/{listId}/update", method = RequestMethod.POST)
-    String changeTask(@RequestParam("id") String id,
+    String updateTask(@RequestParam("id") String id,
                       @RequestParam("name") String name,
                       HttpServletResponse response,
                       @PathVariable("listId") String listId) throws IOException {
         listService.updateList(id, name);
-        return "redirect:/home/list/{listId}/update";
+        return "redirect:/home";
     }
-
-    @RequestMapping(value = "/list/{listId}/view", method = RequestMethod.GET)
-    String viewList(@RequestParam("id") String id,
-                    ModelMap modelMap,
-                    @PathVariable("listId") String listId) throws IOException {
-        modelMap.addAttribute("list", listService.getListById(id));
-        return "changeList";
+//create new task
+    @RequestMapping(value = "/list/newList", method = RequestMethod.POST)
+    String newList(@RequestParam("name") String name) throws IOException {
+        listService.addNewList(name);
+        return "redirect:/home";
     }
-
-    @RequestMapping(value = "/newList", method = RequestMethod.GET)
-    String addlist() throws IOException {
-        return "add_list";
-    }
-
+    //delete list
     @RequestMapping(value = "/list/{listId}/delete", method = RequestMethod.POST)
     String deleteList(@RequestParam("id") String id,
                       HttpServletResponse response,
                       @PathVariable("listId") String listId) throws IOException {
         listService.deleteList(id);
-        return "redirect:/home/list/{listId}/delete";
+        return "redirect:/home";
     }
 }

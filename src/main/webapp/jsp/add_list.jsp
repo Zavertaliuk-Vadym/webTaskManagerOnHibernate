@@ -7,7 +7,7 @@
 <body>
 <div class="addList">
     <input type="submit" value="Home" onclick="window.location='/home'"><br>
-    <form action="list/newList" method="post">
+    <form action="/list/newList" method="post">
         <h3>Add name for new List</h3>
         <input type="text" name="name" placeholder="add name" required><br>
         <input type="submit" value="Add List"><br>
