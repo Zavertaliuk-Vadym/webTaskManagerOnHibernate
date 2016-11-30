@@ -28,7 +28,9 @@ public class ListDAO {
         List<TasksList> listTasks = (List<TasksList>) criteria.list();
         for (TasksList tasksList: listTasks) {
             tasksList.getList_name();
-            tasksList.getTasks().forEach(Task::getTitle);
+            for (Task task:tasksList.getTasks()){
+                task.getDetails();
+            }
         }
         return listTasks;
     }
