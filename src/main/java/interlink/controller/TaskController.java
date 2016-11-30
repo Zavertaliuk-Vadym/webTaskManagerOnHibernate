@@ -77,7 +77,7 @@ public class TaskController {
                       ModelMap modelMap) {
         taskService.updateTask(taskId, title, details, startTime, endTime,listId);
         modelMap.addAttribute("task", taskService.getTaskById(taskId));
-        return "redirect:/task/19/description";
+        return "redirect:/task/{taskId}/description";
     }
 
 }
