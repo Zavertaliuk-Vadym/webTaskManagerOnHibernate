@@ -24,7 +24,7 @@ public class ListController {
         return "add_list";
     }
 //view descr of task
-    @RequestMapping(value = "/{listId}/view", method = RequestMethod.GET)
+    @RequestMapping(value = "/{listId}/description", method = RequestMethod.GET)
     String viewList(ModelMap modelMap,
                     @PathVariable("listId") String listId) throws IOException {
         modelMap.addAttribute("list", listService.getListById(listId));

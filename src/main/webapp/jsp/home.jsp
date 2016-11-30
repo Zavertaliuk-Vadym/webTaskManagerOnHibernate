@@ -26,7 +26,6 @@
                                 </td>
                                 <td>
                                     <form action="/task/${task.id}/description" method="get">
-                                        <%--<input type="hidden" name="id" value="${task.id}">--%>
                                         <input type="submit" value="View"><br>
                                     </form>
                                 </td>
@@ -78,8 +77,7 @@
                     </c:forEach>
                 </table>
             </div>
-            <form action="/list/${list.list_id}/view" method="get">
-                <%--<input type="hidden" name="id" value="${list.list_id}">--%>
+            <form action="/list/${list.list_id}/description" method="get">
                 <input type="submit" value="Change ${list.list_name}"><br>
             </form>
             <form action="/list/${list.list_id}/delete" method="post">
