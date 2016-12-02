@@ -18,19 +18,22 @@ import java.io.IOException;
 public class ListController {
     @Autowired
     ListService listService;
-//add new list
+
+    //add new list
     @RequestMapping(value = "/newList", method = RequestMethod.GET)
-    String addlist() throws IOException {
+    String addList() throws IOException {
         return "add_list";
     }
-//view descr of task
+
+    //view descr of task
     @RequestMapping(value = "/{listId}/description", method = RequestMethod.GET)
     String viewList(ModelMap modelMap,
                     @PathVariable("listId") String listId) throws IOException {
         modelMap.addAttribute("list", listService.getListById(listId));
         return "changeList";
     }
-//update task
+
+    //update task
     @RequestMapping(value = "/{listId}/update", method = RequestMethod.POST)
     String updateTask(@RequestParam("id") String id,
                       @RequestParam("name") String name,
@@ -39,12 +42,14 @@ public class ListController {
         listService.updateList(id, name);
         return "redirect:/home";
     }
-//create new task
+
+    //create new task
     @RequestMapping(value = "/newList", method = RequestMethod.POST)
     String newList(@RequestParam("name") String name) throws IOException {
         listService.addNewList(name);
         return "redirect:/home";
     }
+
     //delete list
     @RequestMapping(value = "/{listId}/delete", method = RequestMethod.POST)
     String deleteList(@RequestParam("id") String id,

@@ -37,5 +37,5 @@ class Parser {
     //for local server
     //postgres://postgres:school24@localhost:5432/postgres
     //for heroku server
-   // postgres://ypypoocqqfxguc:dw0k-Vp_nbSrpZZA7oppd460gx@ec2-54-228-189-38.eu-west-1.compute.amazonaws.com:5432/dfbbsovsq0lhu7
+    // postgres://ypypoocqqfxguc:dw0k-Vp_nbSrpZZA7oppd460gx@ec2-54-228-189-38.eu-west-1.compute.amazonaws.com:5432/dfbbsovsq0lhu7
 }
