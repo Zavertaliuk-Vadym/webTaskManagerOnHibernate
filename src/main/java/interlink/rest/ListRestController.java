@@ -12,12 +12,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/list")
 public class ListRestController {
+
     @Autowired
     ListService listService;
 
     @RequestMapping(value = "")
     @ResponseBody
-    List<TasksList> getAllLists(){
+    List<TasksList> getAllLists() {
         return listService.getAllLists();
     }
 }
