@@ -1,4 +1,4 @@
-package interlink.model;
+package interlink.todolist.model;
 
 
 import org.hibernate.annotations.*;

@@ -1,6 +1,6 @@
-package interlink.controller;
+package interlink.todolist.controller;
 
-import interlink.service.ListService;
+import interlink.todolist.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

@@ -1,5 +1,7 @@
-package interlink.model;
+package interlink.todolist.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -12,6 +14,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "list_id", insertable = false, updatable = false)
     private TasksList tasksList;

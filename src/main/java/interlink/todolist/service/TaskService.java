@@ -1,7 +1,7 @@
-package interlink.service;
+package interlink.todolist.service;
 
-import interlink.dao.TaskDAO;
-import interlink.model.Task;
+import interlink.todolist.dao.TaskDAO;
+import interlink.todolist.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

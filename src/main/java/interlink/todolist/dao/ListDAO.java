@@ -1,9 +1,8 @@
-package interlink.dao;
+package interlink.todolist.dao;
 
-import interlink.model.TasksList;
-import interlink.model.Task;
+import interlink.todolist.model.TasksList;
+import interlink.todolist.model.Task;
 import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
