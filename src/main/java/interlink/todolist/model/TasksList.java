@@ -1,6 +1,7 @@
 package interlink.todolist.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -19,6 +20,7 @@ public class TasksList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer list_id;
 
+    @JsonIgnore
     @Cascade(CascadeType.REMOVE)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "tasksList")
     private List<Task> tasks = new ArrayList();

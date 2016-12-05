@@ -1,7 +1,9 @@
 package interlink.rest;
 
+import interlink.todolist.model.Task;
 import interlink.todolist.model.TasksList;
 import interlink.todolist.service.ListService;
+import interlink.todolist.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api")
-public class TaskControllerForApi {
+@RequestMapping("/task")
+public class TaskRestController {
     @Autowired
-    ListService listService;
+    TaskService taskService;
 
     @RequestMapping(value = "")
     @ResponseBody
-    List<TasksList> getAllTask(){
-        return listService.getAllListsWithTasks();
+    Task getAllLists(){
+        return taskService.getTaskById("21");
     }
 }
