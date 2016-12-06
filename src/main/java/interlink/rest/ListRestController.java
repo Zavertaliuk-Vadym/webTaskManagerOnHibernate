@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/list")
+@RequestMapping("/api")
 public class ListRestController {
 
     @Autowired
     ListService listService;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "/list")
     @ResponseBody
     List<TasksList> getAllLists() {
         return listService.getAllLists();

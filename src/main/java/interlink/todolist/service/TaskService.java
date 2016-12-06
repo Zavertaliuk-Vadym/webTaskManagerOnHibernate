@@ -5,6 +5,9 @@ import interlink.todolist.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class TaskService {
 
@@ -23,9 +26,11 @@ public class TaskService {
         dao.switchStatusTask(id);
     }
 
-    public Task getTaskById(String id) {
+    public List<Task> getTaskById(String id) {
+        List<Task> list = new ArrayList<>();
         Task task =dao.getTaskById(id);
-        return task;
+        list.add(task);
+        return list;
     }
 
     public void updateTask(String taskId, String title, String details, String startTime, String endTime,String listId) {

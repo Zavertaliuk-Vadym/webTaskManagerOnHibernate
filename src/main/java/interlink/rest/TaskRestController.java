@@ -7,16 +7,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/task")
+@RequestMapping("/api")
 public class TaskRestController {
 
     @Autowired
     TaskService taskService;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "/task")
     @ResponseBody
-    Task getAllLists(){
+    List<Task> getAllLists(){
         return taskService.getTaskById("21");
     }
 }
